@@ -1,0 +1,38 @@
+<idea-plugin>
+    <id>com.nodesagency.plugin.nstack_translation_folding</id>
+    <name>Nstack Translation folding</name>
+    <version>1.0</version>
+    <vendor email="vlos@nodesagency.com" url="http://www.nodesagancy.com">Nodes Agency</vendor>
+
+    <description><![CDATA[
+        This is a Nstack related plugin.
+        This plugin replaces the Translation class reference expression with a placeholder containing the reference actual value.
+    ]]></description>
+
+    <change-notes><![CDATA[
+
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+    on how to target different products -->
+    <depends>com.intellij.modules.all</depends>
+
+    <application-components>
+        <component>
+            <implementation-class>com.nodes.folding.TranslationFoldingBuilder</implementation-class>
+        </component>
+    </application-components>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <lang.foldingBuilder language="JAVA" implementationClass="com.nodes.folding.TranslationFoldingBuilder"/>
+    </extensions>
+
+    <actions>
+
+    </actions>
+
+</idea-plugin>
