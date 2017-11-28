@@ -64,7 +64,7 @@ class TranslationFoldingBuilder : FoldingBuilderEx() {
                 }
             }
         }
-        return if (value != null) referenceName + ": " + value else referenceName + ": ..."
+        return if (value != null) value else ": ..."
     }
 
     override fun isCollapsedByDefault(node: ASTNode): Boolean {
