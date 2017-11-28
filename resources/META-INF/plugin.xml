@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.nodesagency.plugin.nstack_translation_folding</id>
     <name>Nstack Translation folding</name>
-    <version>2.0</version>
+    <version>2.1</version>
     <vendor email="vlos@nodesagency.com" url="http://www.nodesagancy.com">Nodes Agency</vendor>
 
     <description><![CDATA[
