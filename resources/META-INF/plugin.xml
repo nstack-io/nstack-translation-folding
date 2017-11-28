@@ -28,11 +28,20 @@
     </application-components>
 
     <extensions defaultExtensionNs="com.intellij">
-        <lang.foldingBuilder language="JAVA" implementationClass="com.nodes.folding.TranslationFoldingBuilder"/>
+        <lang.foldingBuilder language="JAVA"
+                             implementationClass="com.nodes.folding.TranslationFoldingBuilder"/>
+        <codeInsight.lineMarkerProvider language="JAVA"
+                                        implementationClass="com.nodes.folding.SimpleLineMarkerProvider"/>
     </extensions>
 
     <actions>
-
+        <group id="NstackGroup" text="Nstack" description="Nstack options">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <action id="com.nodes.actions.ToggleLineMarkingAction"
+                    class="com.nodes.actions.ToggleLineMarkingAction"
+                    text="Toggle translation line marker" description="Switch Line marking on/off ">
+            </action>
+        </group>
     </actions>
 
 </idea-plugin>

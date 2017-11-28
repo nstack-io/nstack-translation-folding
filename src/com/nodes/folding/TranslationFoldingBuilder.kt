@@ -19,6 +19,7 @@ import java.util.*
 class TranslationFoldingBuilder : FoldingBuilderEx() {
 
     override fun buildFoldRegions(root: PsiElement, document: Document, quick: Boolean): Array<FoldingDescriptor> {
+//        if (!(root is PsiJavaFile || root is org.jetbrains.kotlin.psi.KtFile)) {
         if (root !is PsiJavaFile) {
             return FoldingDescriptor.EMPTY
         }
@@ -40,7 +41,7 @@ class TranslationFoldingBuilder : FoldingBuilderEx() {
     }
 
     private fun isValidNstackTranslationClassReference(referenceExpression: PsiReferenceExpression?): Boolean {
-        // A valid reference to a field inside Translation class contains 4 children: Translation.section + . + PsiReferenceParameterList + . + field
+        // A valid reference to a field inside Translation class contains 4 children: Translation.section + . + PsiReferenceParameterList + stringName
         if (referenceExpression == null || referenceExpression.children.size != 4) return false
         val nstackSectionReference = referenceExpression.firstChild    // returns 'Translation.section' element
         val translationChild = nstackSectionReference.firstChild    // returns 'Translation' element
