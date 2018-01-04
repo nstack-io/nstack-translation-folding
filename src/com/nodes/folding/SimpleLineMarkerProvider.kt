@@ -13,8 +13,8 @@ import com.intellij.psi.PsiReferenceExpression
 import java.util.*
 
 class SimpleLineMarkerProvider : RelatedItemLineMarkerProvider() {
-    override fun collectNavigationMarkers(reference: PsiElement,
-                                          result: MutableCollection<in RelatedItemLineMarkerInfo<*>>?) {
+
+    override fun collectNavigationMarkers(reference: PsiElement, result: MutableCollection<in RelatedItemLineMarkerInfo<PsiElement>>) {
         if (reference is PsiReferenceExpression) {
             if (isValidNstackTranslationClassReference(reference)) {
                 val properties = ArrayList<PsiElement>()
@@ -22,7 +22,7 @@ class SimpleLineMarkerProvider : RelatedItemLineMarkerProvider() {
                 if (properties.size > 0) {
                     val hardcodedIcon = IconLoader.getIcon("/ic_title_white_18pt.png")
                     val builder = NavigationGutterIconBuilder.create(hardcodedIcon).setTargets(properties).setTooltipText("Navigate to a simple property")
-                    result!!.add(builder.createLineMarkerInfo(reference))
+                    result.add(builder.createLineMarkerInfo(reference))
                 }
             } else if (isValidAndroidStringResourceReference(reference)) {
                 val properties = ArrayList<PsiElement>()
@@ -30,7 +30,7 @@ class SimpleLineMarkerProvider : RelatedItemLineMarkerProvider() {
                 if (properties.size > 0) {
                     val hardcodedIcon = IconLoader.getIcon("/ic_priority_high_white_18pt.png")
                     val builder = NavigationGutterIconBuilder.create(hardcodedIcon).setTargets(properties).setTooltipText("Navigate to a simple property")
-                    result!!.add(builder.createLineMarkerInfo(reference))
+                    result.add(builder.createLineMarkerInfo(reference))
                 }
             }
         }

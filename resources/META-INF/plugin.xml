@@ -32,6 +32,10 @@
                              implementationClass="com.nodes.folding.TranslationFoldingBuilder"/>
         <codeInsight.lineMarkerProvider language="JAVA"
                                         implementationClass="com.nodes.folding.SimpleLineMarkerProvider"/>
+        <lang.foldingBuilder language="kotlin"
+                             implementationClass="com.nodes.folding.TranslationFoldingBuilder"/>
+        <codeInsight.lineMarkerProvider language="kotlin"
+                                        implementationClass="com.nodes.folding.SimpleLineMarkerProvider"/>
     </extensions>
 
     <actions>
