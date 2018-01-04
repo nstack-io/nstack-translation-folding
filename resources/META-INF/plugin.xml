@@ -19,23 +19,28 @@
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
     on how to target different products -->
-    <depends>com.intellij.modules.all</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends optional="true">org.jetbrains.kotlin</depends>
 
     <application-components>
-        <component>
-            <implementation-class>com.nodes.folding.TranslationFoldingBuilder</implementation-class>
-        </component>
+        <!--<component>-->
+            <!--<implementation-class>com.nodes.folding.TranslationFoldingBuilder</implementation-class>-->
+        <!--</component>-->
+        <!--<component>-->
+            <!--<implementation-class>com.nodes.folding.KotlinTranslationFoldingBuilder</implementation-class>-->
+        <!--</component>-->
     </application-components>
 
     <extensions defaultExtensionNs="com.intellij">
-        <lang.foldingBuilder language="JAVA"
-                             implementationClass="com.nodes.folding.TranslationFoldingBuilder"/>
-        <codeInsight.lineMarkerProvider language="JAVA"
-                                        implementationClass="com.nodes.folding.SimpleLineMarkerProvider"/>
+        <!--<lang.foldingBuilder language="JAVA"-->
+                             <!--implementationClass="com.nodes.folding.TranslationFoldingBuilder"/>-->
+        <!--<codeInsight.lineMarkerProvider language="JAVA"-->
+                                        <!--implementationClass="com.nodes.folding.SimpleLineMarkerProvider"/>-->
         <lang.foldingBuilder language="kotlin"
-                             implementationClass="com.nodes.folding.TranslationFoldingBuilder"/>
-        <codeInsight.lineMarkerProvider language="kotlin"
-                                        implementationClass="com.nodes.folding.SimpleLineMarkerProvider"/>
+                             implementationClass="com.nodes.folding.KotlinTranslationFoldingBuilder"/>
+        <!--<codeInsight.lineMarkerProvider language="kotlin"-->
+                                        <!--implementationClass="com.nodes.folding.SimpleLineMarkerProvider"/>-->
     </extensions>
 
     <actions>
